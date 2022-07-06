@@ -20,6 +20,7 @@ class IPositionSensors;
 class IOrientationSensors;
 class ITemperatureSensors;
 class ISixAxisForceTorqueSensors;
+class ISixAxisCanForceTorqueSensors;
 class IContactLoadCellArrays;
 class IEncoderArrays;
 class ISkinPatches;
@@ -443,6 +444,31 @@ public:
 
     virtual ~ISixAxisForceTorqueSensors(){}
 };
+
+/**
+ * @ingroup dev_iface_multiple_analog
+ *
+ * \brief Device interface to one or multiple six axis force torque sensor over can bus.
+ *
+ * The first three element of the returned vector are the three-axis forces, while the last three elements are the three-axis torques.
+ *
+ * | Sensor Tag  |
+ * |:-----------------:|
+ * | `SixAxisCanForceTorqueSensors` |
+ */
+class YARP_dev_API yarp::dev::ISixAxisCanForceTorqueSensors : public yarp::dev::ISixAxisForceTorqueSensors
+{
+public:
+
+    /**
+     * Set the transmission rate of the specified sensor.
+     */
+    virtual bool setDataRate(const int &period) = 0;
+
+    virtual ~ISixAxisCanForceTorqueSensors(){}
+
+};
+
 
 /**
  * @ingroup dev_iface_multiple_analog
