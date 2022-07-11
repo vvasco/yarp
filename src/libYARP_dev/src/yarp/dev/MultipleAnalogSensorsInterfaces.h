@@ -463,7 +463,7 @@ public:
     /**
      * Set the transmission rate of the specified sensor.
      */
-    virtual bool setDataRate(const int &period) = 0;
+    virtual bool setDataRate(size_t sens_index, const int &period) = 0;
 
     virtual ~ISixAxisCanForceTorqueSensors(){}
 
