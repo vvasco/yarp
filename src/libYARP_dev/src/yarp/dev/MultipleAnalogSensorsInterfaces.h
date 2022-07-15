@@ -465,6 +465,16 @@ public:
      */
     virtual bool setDataRate(size_t sens_index, const int &period) = 0;
 
+    /**
+     * Set the mode of the specified sensor (calibrated/not calibrated).
+     */
+    virtual bool setMode(size_t sens_index, const int &mode) = 0;
+
+    /**
+     * Set the signalOnceFullScale for this sensor. if eobool_true, then the strains signals its full scale
+     */
+    virtual bool setFullScale(size_t sens_index, const bool &fullScale) = 0;
+
     virtual ~ISixAxisCanForceTorqueSensors(){}
 
 };
